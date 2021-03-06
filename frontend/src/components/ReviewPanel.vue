@@ -3,6 +3,9 @@
         <div class="title">
             <h1>Review Applications</h1>
         </div>
+        <div class="applications">
+          
+        </div>
         <RequestItem />
         <RequestItem />
         <RequestItem />
@@ -11,12 +14,15 @@
 
 <script>
 
-import RequestItem from './RequestItem.vue'
-
+import RequestItem from './RequestItem.vue';
+import { db } from '../db';
 export default {
   name: 'ReviewPanel',
   components: {
     RequestItem
+  },
+  firebase: {
+    requests: db.ref('requests'),
   },
   props: {
     reviews: String

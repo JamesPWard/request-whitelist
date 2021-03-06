@@ -1,11 +1,13 @@
-import './firebase';
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index';
-import VueFire from 'vuefire';
+import { rtdbPlugin } from 'vuefire';
+
+
 
 Vue.config.productionTip = false
-Vue.use(VueFire);
+Vue.use(rtdbPlugin);
 
 new Vue({
   router: router,

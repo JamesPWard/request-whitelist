@@ -5,21 +5,45 @@
     </div>
     <div class="input">
       <p>What is your username?</p>
-      <input placeholder="Minecraft U/N" type="text">
+      <input placeholder="Minecraft U/N" v-model="name" type="text">
       
     </div>
     <div class="submit-container">
-      <button class="button">Request Access</button>
+      <button class="button" v-on:click="submitRequest()">Request Access</button>
   </div>
   </section>
 </template>
 
 <script>
+import {db} from '../db';
+
 export default {
   name: 'InputPanel',
-  props: {
-    msg: String
+  props: {  },
+  data(){
+    return{
+      name: '',
+    }
+  },
+  methods: {
+    submitRequest(){
+      console.log("Called submit");
+      //Build object
+      const newRequest = {
+        name: this.name,
+        accepted: false,
+        created: new Date(),
+        updated: new Date(),
+      }
+
+      db.ref('requests').push(newRequest);
+
+      console.log("finished submit");
+
+
+    }
   }
+
 }
 </script>
 
