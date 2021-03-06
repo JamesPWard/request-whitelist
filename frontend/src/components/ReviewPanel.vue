@@ -37,14 +37,14 @@ export default {
 <style scoped>
     .container{
         width: 27vw;
-        height: 33vh;
+        height: auto;
         background: #111;
         border-radius: 10px;
         display: inline-flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        padding: 5rem 2rem;
+        padding: 2rem 2rem 0;
     }
 
     .title{

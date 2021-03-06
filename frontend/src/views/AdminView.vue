@@ -11,7 +11,7 @@ import ReviewPanel from '@/components/ReviewPanel.vue'
 export default {
   name: 'AdminView',
   components: {
-    HelloWorld
+    ReviewPanel
   }
 }
 </script>

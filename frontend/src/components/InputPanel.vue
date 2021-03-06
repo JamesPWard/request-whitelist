@@ -5,7 +5,7 @@
     </div>
     <div class="input">
       <p>What is your username?</p>
-      <input type="text">
+      <input placeholder="Minecraft U/N" type="text">
       
     </div>
     <div class="submit-container">
@@ -23,7 +23,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .container{
     width: 27vw;
@@ -60,7 +59,7 @@ export default {
     width: 100%;
     height: 5rem;
     max-height: 70px;
-    margin-top: 1rem;
+    margin-top: 2rem;
     border-radius: 5px;
     border: 0;
     text-align: center;
@@ -78,7 +77,7 @@ export default {
     font-size: 1.25rem;
     color: white;
     align-self: center;
-    margin-top: 2rem;
+    margin-top: 5rem;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
   }
