@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import RequestView from '../views/RequestView.vue'
-import AdminView from '../views/AdminView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import RequestView from '../views/RequestView.vue';
+import AdminView from '../views/AdminView.vue';
 
 Vue.use(VueRouter)
 
@@ -14,14 +14,13 @@ const routes = [
   {
     path: '/admin',
     name: 'Admin',
-    component: AdminView
+    component: AdminView,
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+  base: process.env.BASE_URL, routes,
 })
 
 export default router

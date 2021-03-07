@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <InputPanel />
-  </div>
+  <InputPanel />
 </template>
 
 <script>

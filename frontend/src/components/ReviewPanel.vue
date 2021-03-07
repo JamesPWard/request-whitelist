@@ -1,31 +1,24 @@
 <template>
   <section class="container">
         <div class="title">
-            <h1>Review Applications</h1>
+            <h3>Review Applications</h3>
         </div>
-        <div class="applications">
-          
+        <div class="applications" v-bind:key="index" v-for="(item, index) in this.requests">
+          <RequestItem :request="item" />
         </div>
-        <RequestItem />
-        <RequestItem />
-        <RequestItem />
   </section>
 </template>
 
 <script>
 
 import RequestItem from './RequestItem.vue';
-import { db } from '../db';
 export default {
   name: 'ReviewPanel',
   components: {
     RequestItem
   },
-  firebase: {
-    requests: db.ref('requests'),
-  },
   props: {
-    reviews: String
+    requests: Array,
   }
 }
 
@@ -50,7 +43,7 @@ export default {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        padding: 2rem 2rem 0;
+        padding: 2rem;
     }
 
     .title{
@@ -58,5 +51,6 @@ export default {
         font-weight: 600;
         color: white;
         margin-bottom: 2rem;
+        margin-top: 0;
     }
 </style>

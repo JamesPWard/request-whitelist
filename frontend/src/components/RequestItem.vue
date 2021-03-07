@@ -1,39 +1,63 @@
 <template>
   <section class="requestItemContainer">
     <h1 class="name">
-        Zinc187
+        {{request.name}}
     </h1>
     <div class="buttonContainer">
-        <button class="accept"><img src="../assets/accept.svg" alt=""></button>
-        <button class="decline"><img src="../assets/decline.svg" alt=""></button>
+        <button class="accept" v-on:click="acceptRequest()"><img src="../assets/accept.svg" alt=""></button>
+        <button class="decline" v-on:click="declineRequest()"><img src="../assets/decline.svg" alt=""></button>
     </div>
 
   </section>
 </template>
 
 <script>
+import { db } from '../db';
+
 export default {
   name: 'RequestItem',
+  methods:{
+      acceptRequest(){
+        // Set accepted to true
+        const requestObject = this.request;
+        
+        requestObject.accepted = true;
+     
+        // Put to firebase
+        db.ref('requests/' + this.request['.key'])
+        .set(requestObject)
+        .then(() => {
+            console.log('user updated!')
+        })
+        
+      },
+
+      declineRequest(){
+        // Set accepted to false
+        const requestObject = this.request;
+        requestObject.declined = true;
+     
+        // Put to firebase
+        db.ref('requests/' + this.request['.key'])
+        .set(requestObject)
+        .then(() => {
+            console.log('user updated!')
+        })
+        console.log('Removed Request')
+      },
+  },
   props: {
-    reviews: String
+      request: String,
   }
 }
-
-// request = [{
-//     id: 1,
-//     username: 'Zinc187',
-//     accepted: true,
-//     created: ''
-
-// }];
 
 </script>
 
 
 <style scoped>
     .requestItemContainer{
-        width: 100%;
-        height: 10%;
+        min-width: 300px;
+        height: 2%;
         background: #222;
         border-radius: 10px;
         display: flex;
@@ -50,11 +74,10 @@ export default {
     }
 
     .buttonContainer{
-        width: 30%;
-        height: 100%;
         align-self: center;
         justify-self: flex-end;
         margin-left: auto;
+        width: 30%;
     }
 
     button{

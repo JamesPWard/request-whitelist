@@ -28,6 +28,7 @@ export default {
   methods: {
     submitRequest(){
       console.log("Called submit");
+      
       //Build object
       const newRequest = {
         name: this.name,
@@ -38,9 +39,7 @@ export default {
 
       db.ref('requests').push(newRequest);
 
-      console.log("finished submit");
-
-
+      console.log("Finished submit");
     }
   }
 
